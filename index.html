@@ -1,0 +1,587 @@
+```html id="tai-xiu-jackpot"
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
+
+<title>Tài Xỉu Nổ Hũ</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at top,
+    #4a3500 0%,
+    #120d02 60%,
+    #000 100%);
+
+    color:white;
+}
+
+/* MAIN */
+
+.wrapper{
+    width:100%;
+    height:100%;
+    display:flex;
+}
+
+/* LEFT */
+
+.left{
+    width:60%;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+}
+
+/* RIGHT */
+
+.right{
+    width:40%;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    rgba(0,0,0,0.25);
+
+    border-left:
+    2px solid rgba(255,255,255,0.1);
+}
+
+/* LOGO */
+
+.logo{
+    position:absolute;
+    top:20px;
+
+    font-size:58px;
+    font-weight:bold;
+
+    color:#ffd700;
+
+    text-shadow:
+    0 0 10px #ffd700,
+    0 0 30px #ffb700,
+    0 0 50px #ff9900;
+}
+
+/* JACKPOT */
+
+.jackpot{
+    position:absolute;
+    top:95px;
+
+    font-size:30px;
+    color:#ff4444;
+
+    text-shadow:
+    0 0 10px red,
+    0 0 20px orange;
+
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0.5;
+    }
+}
+
+/* DICE AREA */
+
+.dice-area{
+    display:flex;
+    gap:50px;
+
+    perspective:1200px;
+}
+
+/* DICE */
+
+.dice{
+    width:120px;
+    height:120px;
+
+    position:relative;
+
+    transform-style:preserve-3d;
+
+    transition:
+    1.2s cubic-bezier(.17,.67,.25,1.25);
+}
+
+/* FACE */
+
+.face{
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    background:white;
+
+    border-radius:20px;
+
+    border:4px solid #ddd;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:60px;
+    font-weight:bold;
+
+    color:black;
+
+    box-shadow:
+    inset 0 0 20px rgba(0,0,0,0.15),
+    0 0 25px rgba(255,255,255,0.3);
+}
+
+/* 3D */
+
+.front  { transform: rotateY(0deg) translateZ(60px); }
+.back   { transform: rotateY(180deg) translateZ(60px); }
+.rightf { transform: rotateY(90deg) translateZ(60px); }
+.leftf  { transform: rotateY(-90deg) translateZ(60px); }
+.top    { transform: rotateX(90deg) translateZ(60px); }
+.bottom { transform: rotateX(-90deg) translateZ(60px); }
+
+/* TOTAL */
+
+.total{
+    margin-top:45px;
+
+    font-size:45px;
+    font-weight:bold;
+
+    color:#00ffd5;
+
+    text-shadow:
+    0 0 10px #00ffd5;
+}
+
+/* BUTTONS */
+
+.buttons{
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+}
+
+.bet{
+    width:280px;
+    height:120px;
+
+    border:none;
+    border-radius:30px;
+
+    font-size:50px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+.bet:hover{
+    transform:scale(1.05);
+}
+
+.tai{
+    background:
+    linear-gradient(to bottom,
+    #ffe27a,
+    #ff9f00);
+
+    color:#111;
+
+    box-shadow:
+    0 0 25px #ffbf00;
+}
+
+.xiu{
+    background:
+    linear-gradient(to bottom,
+    #6be8ff,
+    #0077ff);
+
+    color:white;
+
+    box-shadow:
+    0 0 25px #00aaff;
+}
+
+/* RESULT */
+
+.result{
+    margin-top:35px;
+
+    font-size:45px;
+    font-weight:bold;
+
+    min-height:70px;
+
+    text-align:center;
+}
+
+/* JACKPOT EFFECT */
+
+.jackpot-effect{
+
+    animation:
+    flash 0.4s infinite;
+
+    color:#ffea00 !important;
+
+    text-shadow:
+    0 0 10px yellow,
+    0 0 20px orange,
+    0 0 40px red;
+}
+
+@keyframes flash{
+
+    50%{
+        transform:scale(1.08);
+        opacity:0.7;
+    }
+}
+
+/* CHIPS */
+
+.chips{
+    margin-top:40px;
+    display:flex;
+    gap:15px;
+}
+
+.chip{
+    width:75px;
+    height:75px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    #fff3a0,
+    #ffb700);
+
+    color:black;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-weight:bold;
+
+    box-shadow:
+    0 0 10px gold;
+}
+
+/* PORTRAIT */
+
+.rotate{
+    display:none;
+}
+
+@media screen and (orientation:portrait){
+
+    .wrapper{
+        display:none;
+    }
+
+    .rotate{
+        width:100vw;
+        height:100vh;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        text-align:center;
+
+        font-size:30px;
+
+        padding:30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="rotate">
+📱 Vui lòng xoay ngang màn hình
+</div>
+
+<div class="wrapper">
+
+    <!-- LEFT -->
+    <div class="left">
+
+        <div class="logo">
+            TÀI XỈU
+        </div>
+
+        <div class="jackpot">
+            💥 111 = NỔ HŨ XỈU | 666 = NỔ HŨ TÀI 💥
+        </div>
+
+        <div class="dice-area">
+
+            <!-- DICE 1 -->
+            <div class="dice" id="dice1">
+
+                <div class="face front">1</div>
+                <div class="face back">6</div>
+                <div class="face rightf">3</div>
+                <div class="face leftf">4</div>
+                <div class="face top">5</div>
+                <div class="face bottom">2</div>
+
+            </div>
+
+            <!-- DICE 2 -->
+            <div class="dice" id="dice2">
+
+                <div class="face front">1</div>
+                <div class="face back">6</div>
+                <div class="face rightf">3</div>
+                <div class="face leftf">4</div>
+                <div class="face top">5</div>
+                <div class="face bottom">2</div>
+
+            </div>
+
+            <!-- DICE 3 -->
+            <div class="dice" id="dice3">
+
+                <div class="face front">1</div>
+                <div class="face back">6</div>
+                <div class="face rightf">3</div>
+                <div class="face leftf">4</div>
+                <div class="face top">5</div>
+                <div class="face bottom">2</div>
+
+            </div>
+
+        </div>
+
+        <div class="total" id="total">
+            Tổng: 3
+        </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+
+        <div class="buttons">
+
+            <button class="bet tai"
+            onclick="play('tai')">
+                TÀI
+            </button>
+
+            <button class="bet xiu"
+            onclick="play('xiu')">
+                XỈU
+            </button>
+
+        </div>
+
+        <div class="result" id="result">
+            Chọn cược
+        </div>
+
+        <div class="chips">
+
+            <div class="chip">10K</div>
+            <div class="chip">50K</div>
+            <div class="chip">100K</div>
+            <div class="chip">500K</div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const dice1 =
+document.getElementById("dice1");
+
+const dice2 =
+document.getElementById("dice2");
+
+const dice3 =
+document.getElementById("dice3");
+
+function rand(){
+    return Math.floor(Math.random()*6)+1;
+}
+
+/* ROTATE */
+
+function rotateDice(dice, number){
+
+    let x = 0;
+    let y = 0;
+
+    switch(number){
+
+        case 1:
+            x = 0;
+            y = 0;
+            break;
+
+        case 2:
+            x = 90;
+            break;
+
+        case 3:
+            y = -90;
+            break;
+
+        case 4:
+            y = 90;
+            break;
+
+        case 5:
+            x = -90;
+            break;
+
+        case 6:
+            y = 180;
+            break;
+    }
+
+    dice.style.transform =
+    `
+    rotateX(${x+720}deg)
+    rotateY(${y+720}deg)
+    `;
+}
+
+/* PLAY */
+
+function play(choice){
+
+    let result =
+    document.getElementById("result");
+
+    result.classList.remove(
+    "jackpot-effect");
+
+    result.innerHTML =
+    "🎲 ĐANG LẮC...";
+
+    result.style.color =
+    "white";
+
+    let a = rand();
+    let b = rand();
+    let c = rand();
+
+    rotateDice(dice1,a);
+    rotateDice(dice2,b);
+    rotateDice(dice3,c);
+
+    setTimeout(()=>{
+
+        let total = a+b+c;
+
+        document.getElementById("total")
+        .innerHTML =
+        "Tổng: " + total;
+
+        /* JACKPOT */
+
+        if(a===1 && b===1 && c===1){
+
+            result.innerHTML =
+            "💥 NỔ HŨ XỈU 111 💥";
+
+            result.style.color =
+            "#ffea00";
+
+            result.classList.add(
+            "jackpot-effect");
+
+            return;
+        }
+
+        if(a===6 && b===6 && c===6){
+
+            result.innerHTML =
+            "🔥 NỔ HŨ TÀI 666 🔥";
+
+            result.style.color =
+            "#ff2200";
+
+            result.classList.add(
+            "jackpot-effect");
+
+            return;
+        }
+
+        /* NORMAL */
+
+        let kq =
+        total >= 11 ? "tai" : "xiu";
+
+        if(kq === choice){
+
+            result.innerHTML =
+            "🎉 THẮNG";
+
+            result.style.color =
+            "#00ff66";
+
+        }else{
+
+            result.innerHTML =
+            "💀 THUA";
+
+            result.style.color =
+            "#ff4444";
+        }
+
+    },1200);
+
+}
+
+</script>
+
+</body>
+</html>
+```
